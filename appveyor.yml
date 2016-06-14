@@ -2,7 +2,7 @@ version: "{branch} {build}"
 
 install:
   - appveyor DownloadFile https://dl.google.com/dl/cloudsdk/channels/rapid/GoogleCloudSDKInstaller.exe
-  - GoogleCloudSDKInstaller.exe /S /noreporting /nostartmenu /nodesktop
+  - cmd: GoogleCloudSDKInstaller.exe /S /noreporting /nostartmenu /nodesktop /logtofile
 
 build_script:
   - gcloud preview app versions list
