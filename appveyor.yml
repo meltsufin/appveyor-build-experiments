@@ -1,5 +1,8 @@
 version: "{branch} {build}"
 
+build:
+  verbosity: detailed
+  
 install:
   - appveyor DownloadFile https://dl.google.com/dl/cloudsdk/channels/rapid/GoogleCloudSDKInstaller.exe
   - cmd: GoogleCloudSDKInstaller.exe /S /noreporting /nostartmenu /nodesktop /logtofile
