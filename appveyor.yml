@@ -5,9 +5,9 @@ build:
   
 install:
   - appveyor DownloadFile https://dl.google.com/dl/cloudsdk/channels/rapid/GoogleCloudSDKInstaller.exe
-  - cmd: GoogleCloudSDKInstaller.exe /S /noreporting /nostartmenu /nodesktop /logtofile
+  - GoogleCloudSDKInstaller.exe /S /noreporting /nostartmenu /nodesktop
 
 build_script:
-  - gcloud preview app versions list
+  - gcloud help
 
 test: off
