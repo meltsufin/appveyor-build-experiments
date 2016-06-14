@@ -1,0 +1,9 @@
+version: "{branch} {build}"
+
+install:
+  - Invoke-WebRequest https://dl.google.com/dl/cloudsdk/channels/rapid/google-cloud-sdk.tar.gz -OutFile google-cloud-sdk.tar.gz
+
+build_script:
+  - gcloud preview app versions list
+
+test: off
