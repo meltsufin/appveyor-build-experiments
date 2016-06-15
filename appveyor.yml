@@ -1,15 +1,14 @@
 version: "{branch} {build}"
 
-build:
-  verbosity: detailed
-  
 install:
+  # download Cloud SDK
   - appveyor DownloadFile https://dl.google.com/dl/cloudsdk/channels/rapid/GoogleCloudSDKInstaller.exe
+  # install Cloud SDK
   - GoogleCloudSDKInstaller.exe /S /noreporting /nostartmenu /nodesktop /logtofile /D=C:\cloudsdk
+  # update all Cloud SDK components
+  - gcloud components update --quiet  
   # add App Eengine component to Cloud SDK
   - gcloud components install app-engine-java --quiet
-  # update all Cloud SDK components
-  - gcloud components update --quiet
 
 build_script:
   - gcloud help
