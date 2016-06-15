@@ -24,8 +24,8 @@ install:
 
 build_script:
   - git clone https://github.com/GoogleCloudPlatform/app-maven-plugin.git
-  - git checkout integration_tests
   - cd app-maven-plugin
+  - git checkout integration_tests
   - mvn clean install -DskipTests -B -U
 
 test_script:
