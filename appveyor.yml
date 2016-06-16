@@ -21,7 +21,7 @@ install:
   # login if it's not a pull request
   - >
     IF NOT DEFINED APPVEYOR_PULL_REQUEST_NUMBER
-    && echo %key_file_contents% > appveyor-app-maven-plugin-41c10cd961bb.json
+    echo %key_file_contents% > appveyor-app-maven-plugin-41c10cd961bb.json
     && gcloud auth activate-service-account --key-file appveyor-app-maven-plugin-41c10cd961bb.json
     && gcloud config set project appveyor-app-maven-plugin  
 
