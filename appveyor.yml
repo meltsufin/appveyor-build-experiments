@@ -17,13 +17,13 @@ install:
   - gcloud components update --quiet  
   # add App Eengine component to Cloud SDK
   - gcloud components install app-engine-java --quiet
-  # write keyfile
-  - echo %key_file_contents% > appveyor-app-maven-plugin-41c10cd961bb.json
-  # set Cloud SDK CLI authentication
-  - gcloud auth activate-service-account --key-file appveyor-app-maven-plugin-41c10cd961bb.json
-  # set default project
-  - gcloud config set project appveyor-app-maven-plugin
   
+  # login if it's not a pull request
+  - >
+    IF NOT DEFINED APPVEYOR_PULL_REQUEST_NUMBER
+    && echo %key_file_contents% > appveyor-app-maven-plugin-41c10cd961bb.json
+    && gcloud auth activate-service-account --key-file appveyor-app-maven-plugin-41c10cd961bb.json
+    && gcloud config set project appveyor-app-maven-plugin  
 
 build_script:
   - git clone https://github.com/GoogleCloudPlatform/app-maven-plugin.git
